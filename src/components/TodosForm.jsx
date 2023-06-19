@@ -15,8 +15,8 @@ function TodosForm() {
     const getTodos = async () => {
       try {
         const response = await databases.listDocuments(
-          "647c282a00d84e9163f4", // Replace with your database ID
-          "647c283464a5d972fd1a" // Replace with your collection ID
+          "647c282a00d84e9163f4", //database ID
+          "647c283464a5d972fd1a" // collection ID
         );
         setTodos(response.documents);
       } catch (error) {
@@ -32,8 +32,8 @@ function TodosForm() {
     try {
       setDeletedItemId(id);
       await databases.deleteDocument(
-        "647c282a00d84e9163f4", // Replace with your database ID
-        "647c283464a5d972fd1a", // Replace with your collection ID
+        "647c282a00d84e9163f4", // database ID
+        "647c283464a5d972fd1a", // collection ID
         id
       );
       setTodos(todos.filter((todo) => todo.$id !== id));
@@ -68,8 +68,8 @@ function TodosForm() {
       setIsEditing(false);
 
       await databases.updateDocument(
-        "647c282a00d84e9163f4", // Replace with your database ID
-        "647c283464a5d972fd1a", // Replace with your collection ID
+        "647c282a00d84e9163f4", // database ID
+        "647c283464a5d972fd1a", // collection ID
         id,
         { todo: editedContent }
       );
